@@ -5,46 +5,38 @@ public class RealNumber{
     value = v;
   }
 
-  /*
-  *Return the sum of this and the other
-  */
-  public RealNumber add(RealNumber other){
-     //other can be ANY RealNumber, including a RationalNumber
-     //or other subclasses of RealNumber (that aren't written yet)
-     return null;
-  }
-
-  /*
-  *Return the product of this and the other
-  */
-  public RealNumber multiply(RealNumber other){
-        return null;
-  }
-
-  /*
-  *Return the this divided by the other
-  */
-  public RealNumber divide(RealNumber other){
-        return null;
-  }
-
-  /*
-  *Return the this minus the other
-  */
-  public RealNumber subtract(RealNumber other){
-    return null;
-  }
-
-
   public double getValue(){
     return value;
   }
 
-  public boolean equals(RealNumber other){
-     return true;
-   }
-
   public String toString(){
-    return ""+value;
+    return ""+getValue();
+  }
+
+  public boolean equals(RealNumber other){
+    if (this.getValue() == 0 || other.getValue() == 0) {
+      return this.getValue() == 0 && other.getValue() == 0;
+    }
+    return Math.abs(this.getValue()-other.getValue())/this.getValue()) < 0.00001;
+  }
+
+  public RealNumber add(RealNumber other){
+     RealNumber ans = new RealNumber(this.getValue() + other.getValue());
+     return ans;
+  }
+
+  public RealNumber multiply(RealNumber other){
+    RealNumber ans = new RealNumber(this.getValue() * other.getValue());
+    return ans;
+  }
+
+  public RealNumber divide(RealNumber other){
+    RealNumber ans = new RealNumber(this.getValue() / other.getValue());
+    return ans;
+  }
+
+  public RealNumber subtract(RealNumber other){
+    RealNumber ans = new RealNumber(this.getValue() - other.getValue());
+    return ans;
   }
 }
