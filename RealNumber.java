@@ -17,7 +17,7 @@ public class RealNumber{
     if (this.getValue() == 0 || other.getValue() == 0) {
       return this.getValue() == 0 && other.getValue() == 0;
     }
-    return Math.abs(this.getValue()-other.getValue())/this.getValue()) < 0.00001;
+    return Math.abs(this.getValue()-other.getValue())/this.getValue() < 0.00001;
   }
 
   public RealNumber add(RealNumber other){
