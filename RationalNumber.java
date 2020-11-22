@@ -1,14 +1,12 @@
 public class RationalNumber extends RealNumber {
   private int numerator, denominator;
 
-  /**Initialize the RationalNumber with the provided values
-  *  if the denominator is 0, make the fraction 0/1 instead
-  *@param nume the numerator
-  *@param deno the denominator
-  */
   public RationalNumber(int nume, int deno){
     super(0.0);
     if (deno == 0) {
+      numerator = 0;
+      denominator = 1;
+    } else if (nume == 0) {
       numerator = 0;
       denominator = 1;
     } else {
@@ -22,29 +20,19 @@ public class RationalNumber extends RealNumber {
     return (double) numerator / denominator;
   }
 
-  /**
-  *@return the numerator
-  */
   public int getNumerator(){
     return numerator;
   }
-  /**
-  *@return the denominator
-  */
+
   public int getDenominator(){
     return denominator;
   }
-  /**
-  *@return a new RationalNumber that has the same numerator
-  *and denominator as this RationalNumber but reversed.
-  */
+
   public RationalNumber reciprocal(){
     RationalNumber ans = new RationalNumber(this.denominator, this.numerator);
     return ans;
   }
-  /**
-  *@return true when the RationalNumbers have the same numerators and denominators, false otherwise.
-  */
+
   public boolean equals(RationalNumber other){
     reduce(); other.reduce();
     return numerator == other.numerator && denominator == other.denominator;
