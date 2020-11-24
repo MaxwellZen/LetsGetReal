@@ -58,7 +58,7 @@ public class RationalNumber extends Number {
       numerator = -1 * numerator;
       denominator = -1 * denominator;
     }
-    int common = gcd(numerator, denominator);
+    int common = gcd(Math.abs(numerator), denominator);
     numerator = numerator / common;
     denominator = denominator / common;
   }
