@@ -1,12 +1,8 @@
-public class RationalNumber extends RealNumber {
+public class RationalNumber extends Number {
   private int numerator, denominator;
 
   public RationalNumber(int nume, int deno){
-    super(0.0);
-    if (deno == 0) {
-      numerator = 0;
-      denominator = 1;
-    } else if (nume == 0) {
+    if (deno == 0 || nume == 0) {
       numerator = 0;
       denominator = 1;
     } else {
@@ -39,7 +35,7 @@ public class RationalNumber extends RealNumber {
   }
 
   public String toString(){
-    if (getValue()<0) return "-" + Math.abs(numerator) + "/" + Math.abs(denominator);
+    if (denominator == 1) return "" + numerator;
     return "" + numerator + "/" + denominator;
   }
 
@@ -58,6 +54,10 @@ public class RationalNumber extends RealNumber {
   }
 
   private void reduce(){
+    if (denominator < 0) {
+      numerator = -1 * numerator;
+      denominator = -1 * denominator;
+    }
     int common = gcd(numerator, denominator);
     numerator = numerator / common;
     denominator = denominator / common;
