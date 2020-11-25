@@ -35,7 +35,7 @@ public class RationalNumber extends Number {
   }
 
   public String toString(){
-    if (denominator == 1) return "" + numerator;
+    if (denominator == 1 || numerator == 0) return "" + numerator;
     return "" + numerator + "/" + denominator;
   }
 
